@@ -30,14 +30,13 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration configuration = new CorsConfiguration();
+        CorsConfiguration config = new CorsConfiguration();
 
-        configuration.setAllowedOriginPatterns(List.of(
-                "https://*.netlify.app",
-                "http://localhost:5173"
+        config.setAllowedOrigins(List.of(
+                "https://job-application-tracker-frontend.netlify.app"
         ));
 
-        configuration.setAllowedMethods(List.of(
+        config.setAllowedMethods(List.of(
                 "GET",
                 "POST",
                 "PUT",
@@ -45,13 +44,14 @@ public class SecurityConfig {
                 "OPTIONS"
         ));
 
-        configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true);
+        config.setAllowedHeaders(List.of("*"));
+
+        config.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration("/**", config);
 
         return source;
     }
