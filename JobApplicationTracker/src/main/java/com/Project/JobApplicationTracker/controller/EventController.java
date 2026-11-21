@@ -10,9 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
-@CrossOrigin(origins = {
-        "https://job-application-tracker-frontend.netlify.app",
-        "http://localhost:5173"},allowCredentials = "true")
 public class EventController {
 
     private final EventService eventService;

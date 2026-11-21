@@ -1,6 +1,7 @@
 package com.Project.JobApplicationTracker.controller;
 
 import com.Project.JobApplicationTracker.entities.User;
+
 import com.Project.JobApplicationTracker.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,9 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {
-        "https://job-application-tracker-frontend.netlify.app",
-        "http://localhost:5173"},allowCredentials = "true")
 public class AuthController {
 
     private final UserService userService;

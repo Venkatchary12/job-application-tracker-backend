@@ -21,9 +21,21 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disable CSRF for REST APIs
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable global CORS
             .authorizeHttpRequests(auth -> auth
-            	.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/auth/**", "/api/files/**", "/companies/**", "/applications/**", "/events/**").permitAll()
-                .anyRequest().authenticated()
+            		.anyRequest().permitAll()
+            	.requestMatchers(
+            		    "/auth/**",
+            		    "/api/files/**",
+
+            		    "/companies",
+            		    "/companies/**",
+
+            		    "/applications",
+            		    "/applications/**",
+
+            		    "/events",
+            		    "/events/**"
+            		).permitAll()                
+            	.anyRequest().permitAll()
             );
 
         return http.build();
