@@ -21,22 +21,8 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disable CSRF for REST APIs
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable global CORS
             .authorizeHttpRequests(auth -> auth
-            		.anyRequest().permitAll()
-            	.requestMatchers(
-            		    "/auth/**",
-            		    "/api/files/**",
-
-            		    "/companies",
-            		    "/companies/**",
-
-            		    "/applications",
-            		    "/applications/**",
-
-            		    "/events",
-            		    "/events/**"
-            		).permitAll()                
-            	.anyRequest().permitAll()
-            );
+            	    .anyRequest().permitAll()
+            	);
 
         return http.build();
     }
