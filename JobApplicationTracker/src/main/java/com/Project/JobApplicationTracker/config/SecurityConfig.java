@@ -3,6 +3,7 @@ package com.Project.JobApplicationTracker.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -20,6 +21,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disable CSRF for REST APIs
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable global CORS
             .authorizeHttpRequests(auth -> auth
+            	.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/auth/**", "/api/files/**", "/companies/**", "/applications/**", "/events/**").permitAll()
                 .anyRequest().authenticated()
             );
