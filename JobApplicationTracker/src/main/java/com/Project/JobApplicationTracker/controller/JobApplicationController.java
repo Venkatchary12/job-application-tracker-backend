@@ -17,7 +17,9 @@ import com.Project.JobApplicationTracker.service.JobApplicationService;
 
 @RestController
 @RequestMapping("/applications")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "https://job-application-tracker-frontend.netlify.app",
+        "http://localhost:5173"},allowCredentials = "true")
 public class JobApplicationController {
 
 	private final JobApplicationService jobApplicationService;

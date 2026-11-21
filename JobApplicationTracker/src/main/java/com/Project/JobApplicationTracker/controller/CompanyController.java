@@ -18,7 +18,9 @@ import com.Project.JobApplicationTracker.service.CompanyService;
 
 @RestController
 @RequestMapping("/companies")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "https://job-application-tracker-frontend.netlify.app",
+        "http://localhost:5173"},allowCredentials = "true")
 public class CompanyController {
 
 	private final CompanyService companyService;

@@ -12,7 +12,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "https://job-application-tracker-frontend.netlify.app",
+        "http://localhost:5173"},allowCredentials = "true")
 public class AuthController {
 
     private final UserService userService;

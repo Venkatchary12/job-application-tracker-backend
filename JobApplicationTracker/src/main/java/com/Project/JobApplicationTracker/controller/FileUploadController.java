@@ -13,7 +13,9 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/files")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "https://job-application-tracker-frontend.netlify.app",
+        "http://localhost:5173"},allowCredentials = "true")
 public class FileUploadController {
 
     private final FileStorageService fileStorageService;
