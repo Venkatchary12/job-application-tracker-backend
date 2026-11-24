@@ -32,7 +32,7 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of(
+        config.setAllowedOrigins(List.of("http://localhost:5173",
                 "https://job-application-tracker-frontend.netlify.app"
         ));
 
@@ -46,7 +46,7 @@ public class SecurityConfig {
 
         config.setAllowedHeaders(List.of("*"));
 
-        config.setAllowCredentials(false);
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
